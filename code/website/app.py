@@ -8,52 +8,52 @@ with open(model_filename, 'rb') as file:
     model = pickle.load(file)
 
 def main():
-    st.title('Heart Disease Prediction')
-    age = st.slider('Age', 18, 100, 50)
-    sex_options = ['Male', 'Female']
-    sex = st.selectbox('Sex', sex_options)
-    sex_num = 1 if sex == 'Male' else 0 
-    cp_options = ['Typical Angina', 'Atypical Angina', 'Non-anginal Pain', 'Asymptomatic']
-    cp = st.selectbox('Chest Pain Type', cp_options)
-    cp_num = cp_options.index(cp)
-    trestbps = st.slider('Resting Blood Pressure', 90, 200, 120)
-    chol = st.slider('Cholesterol', 100, 600, 250)
-    fbs_options = ['False', 'True']
-    fbs = st.selectbox('Fasting Blood Sugar > 120 mg/dl', fbs_options)
-    fbs_num = fbs_options.index(fbs)
-    restecg_options = ['Normal', 'ST-T Abnormality', 'Left Ventricular Hypertrophy']
-    restecg = st.selectbox('Resting Electrocardiographic Results', restecg_options)
-    restecg_num = restecg_options.index(restecg)
-    thalach = st.slider('Maximum Heart Rate Achieved', 70, 220, 150)
-    exang_options = ['No', 'Yes']
-    exang = st.selectbox('Exercise Induced Angina', exang_options)
-    exang_num = exang_options.index(exang)
-    oldpeak = st.slider('ST Depression Induced by Exercise Relative to Rest', 0.0, 6.2, 1.0)
-    slope_options = ['Upsloping', 'Flat', 'Downsloping']
-    slope = st.selectbox('Slope of the Peak Exercise ST Segment', slope_options)
-    slope_num = slope_options.index(slope)
-    ca = st.slider('Number of Major Vessels Colored by Fluoroscopy', 0, 4, 1)
-    thal_options = ['Normal', 'Fixed Defect', 'Reversible Defect']
-    thal = st.selectbox('Thalassemia', thal_options)
-    thal_num = thal_options.index(thal)
+    st.title('Soil Liquifaction  Prediction')
+    mag = st.slider('Moment Magnitude', 0.0, 9.0, 2.0)
+    s0 = st.slider('S0', 67.4, 990.4, 200.5)
+    sp0 = st.slider('sp0',216.7, 3816.1, 900.5)
+    spt = st.slider('Standard Penetration Test', 2.2, 65.5, 6.2)
+    ag = st.slider('peak horizontal acceleration at ground surface', 0.0, 0.7, 0.1)
+    tau_dinamic = st.slider('equivalent dynamic shear stress', 0.0, 0.5, 0.1)
+    pfine = st.slider('Fines content', 0, 91, 10)
+    d50 = st.slider('Median grain size', 0, 1.6, 0.4)
+    uwgwt = st.slider('unit weight above ground water table', 60, 125, 80)
+    uwbgwt = st.slider('unit weight below ground water table', 90, 135, 100)
+    ccb = st.slider('Correlation coefficient between σv′ and σv', 0.2, 0.9, 0.4)
+    smmc = st.slider('Shear mass modal participation factor', 0.4, 0.9, 0.6)
+    msf = st.slider('magnitude scaling factor', 0.1, 0.6, 0.2)
+    nonvalues = st.slider('Number of N values', 1, 19, 5)
+    ocf = st.slider('overburden correction factor', 0.7, 2, 1.2)
+    swvu = st.slider('swvu', 0, 950, 250)
+    cos = st.slider('correction for overburden stress', 0.8, 2.1, 1.4)
+    cmde = st.slider('correction for magnitude (duration) effects', 0.7, 1.7, 1.2)
+    csrmd = st.slider('CSR normalized to σ′v= 100 kPa, Mw=7.5', 0.0, 0.5, 0.2)
+    n1cs = st.slider('fines-corrected N1,60 value.', 5.0, 66.5, 15.0)
 
 
 
     if st.button('Predict'):
         user_input = pd.DataFrame(data={
-            'age': [age],
-            'sex': [sex_num],  
-            'cp': [cp_num],
-            'trestbps': [trestbps],
-            'chol': [chol],
-            'fbs': [fbs_num],
-            'restecg': [restecg_num],
-            'thalach': [thalach],
-            'exang': [exang_num],
-            'oldpeak': [oldpeak],
-            'slope': [slope_num],
-            'ca': [ca],
-            'thal': [thal_num]
+            'mag': [mag],
+            's0': [s0],  
+            'sp0': [sp0],
+            'spt': [spt],
+            'ag': [ag],
+            'tau_dinamic': [tau_dinamic],
+            'pfine': [pfine],
+            'd50': [d50],
+            'uwgwt': [uwgwt],
+            'uwbgwt': [uwbgwt],
+            'ccb': [ccb],
+            'smmc': [smmc],
+            'msf': [msf],
+            'nonvalues': [nonvalues],
+            'ocf': [ocf],
+            'swvu': [swvu],
+            'cos': [cos],
+            'cmde': [cmde],
+            'csrmd': [csrmd],
+            'n1cs': [n1cs]
         })
         prediction = model.predict(user_input)
         prediction_proba = model.predict_proba(user_input)
