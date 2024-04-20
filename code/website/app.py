@@ -1,14 +1,15 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import xgboost as xgb
 
-model_filename = './model/model.pkl'
+model_filename = './model/best_xgb_model.json'
 
-with open(model_filename, 'rb') as file:
-    model = pickle.load(file)
+# Load the XGBoost model
+model = xgb.XGBClassifier()
+model.load_model(model_filename)
 
 def main():
-    st.title('Soil Liquifaction  Prediction')
+    st.title('Soil Liquifaction Prediction')
     mag = st.slider('Moment Magnitude', 0.0, 9.0, 2.0)
     s0 = st.slider('S0', 67.4, 990.4, 200.5)
     sp0 = st.slider('sp0',216.7, 3816.1, 900.5)
@@ -29,8 +30,6 @@ def main():
     cmde = st.slider('correction for magnitude (duration) effects', 0.7, 1.7, 1.2)
     csrmd = st.slider('CSR normalized to σ′v= 100 kPa, Mw=7.5', 0.0, 0.5, 0.2)
     n1cs = st.slider('fines-corrected N1,60 value.', 5.0, 66.5, 15.0)
-
-
 
     if st.button('Predict'):
         user_input = pd.DataFrame(data={
