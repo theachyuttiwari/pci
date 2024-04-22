@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import xgboost as xgb
 
-model_filename = '../../model/best_xgb_model.json'
+model_filename = './model/best_xgb_model.json'
 
 # Load the XGBoost model
 model = xgb.XGBClassifier(n_estimators=100, max_depth=3, learning_rate=0.1, subsample=0.7, min_child_weight=1)
