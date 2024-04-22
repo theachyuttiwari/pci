@@ -19,7 +19,7 @@ def main():
     pfine = st.slider('Fines content', 51, 99, 26)
     d50 = st.slider('Median grain size', 0.0, 1.6, 0.1)
     #uwgwt = st.slider('unit weight above ground water table', 60, 125, 100)
-    uwbgwt = st.slider('unit weight below ground water table', 90, 135, 120)
+    uwgwt = st.slider('unit weight below ground water table', 90, 135, 120)
     wt = st.slider('Depth of ground water table', 0.1, 3.0, 0.3)
     wd = st.slider('Depth from ground surface', 0.0, 25.0, 3.0)
     vts = st.slider('Vertical Total Stress', 370, 5708, 2006)
