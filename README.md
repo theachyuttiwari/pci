@@ -1,9 +1,9 @@
 
 ---
 
-# Heart Disease Prediction Streamlit App
+# Soil Liquifaction Prediction Streamlit App
 
-This is a simple Streamlit web application that allows users to predict the likelihood of heart disease based on input features. The prediction is made using a machine learning model that has been trained on heart disease data.
+This is a simple Streamlit web application that allows users to predict the likelihood of Soil Liquifaction based on input features. The prediction is made using a machine learning model that has been trained on soil liquifaction data.
 
 ![dog and cat image](data/image/hd.png)
 
