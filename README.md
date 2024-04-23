@@ -5,7 +5,7 @@
 
 This is a simple Streamlit web application that allows users to predict the likelihood of Soil Liquifaction based on input features. The prediction is made using a machine learning model that has been trained on soil liquifaction data.
 
-![dog and cat image](data/image/hd.png)
+![dog and cat image](data/image/hd.jpeg)
 
 [Live Website](https://soil-liquifaction-ml.streamlit.app)
 
