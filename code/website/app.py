@@ -31,7 +31,8 @@ def main():
             'vts': [vts]
         })
         st.write("Shape of user_input:", user_input.shape)  # Print the shape of user_input
-        prediction = model.predict(user_input)
+        #prediction = model.predict(user_input)
+        prediction = model.predict(user_input.values)
         prediction_proba = model.predict_proba(user_input)
 
         if prediction[0] == 1:
