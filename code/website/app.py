@@ -14,7 +14,6 @@ def main():
     spt = st.slider('Standard Penetration Test', 0.0, 65.5, 11.3)
     ag = st.slider('peak horizontal acceleration at ground surface', 0.1, 0.8, 0.2)
     pfine = st.slider('Fines content', 51, 99, 26)
-    d50 = st.slider('Median grain size', 0.0, 1.6, 0.1)
     uwgwt = st.slider('unit weight below ground water table', 90, 135, 120)
     wt = st.slider('Depth of ground water table', 0.1, 3.0, 0.3)
     wd = st.slider('Depth from ground surface', 0.0, 25.0, 3.0)
@@ -26,7 +25,6 @@ def main():
             'spt': [spt],
             'ag': [ag],
             'pfine': [pfine],
-            'd50': [d50],
             'uwgwt': [uwgwt],
             'wt': [wt],
             'wd': [wd],
